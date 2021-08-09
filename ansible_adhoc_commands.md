@@ -14,5 +14,14 @@ ansible web "date"
 - above command will return date and time of web server for example
 ```linux
 ansible all -a "free -m"
+ansible all -a "df -h"
 ```
-- above command will return information about memory of each server
+- above s will return information about memory of each server
+```linux
+ansible all -a uptime
+```
+- returns when a server was started and how long it has been up
+```linux
+ansible web -m "/sbin/reboot"
+```
+- reboots web server

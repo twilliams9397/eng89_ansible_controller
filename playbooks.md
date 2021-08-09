@@ -56,5 +56,22 @@ ansible-playbook nginx
 ```
 - playbook to install nodejs and dependencies:
 ```YAML
+# Playbook to install nodejs
+---
 
+- hosts: web
+  gather_facts: yes
+  become: true
+
+  tasks:
+    - name: "Add nodejs apt key"
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
+
+    - name: "Install nodejs"
+      apt:
+       update_cache: yes
+       name: nodejs
+       state: present
 ```

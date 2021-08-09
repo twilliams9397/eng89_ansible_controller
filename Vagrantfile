@@ -24,7 +24,8 @@ Vagrant.configure("2") do |config|
     
     config.hostsupdater.aliases = ["development.web"]
     # creating a link called development.web so we can access web page with this link instread of an IP   
-        
+    
+    config.vm.synced_folder "/Users/Tom1/Documents/Sparta/Vagrant/Dev_Env/eng89_dev_env/app", "/home/vagrant/app"
   end
   
 # creating second VM called db

@@ -4,59 +4,12 @@
 - can be used to run commands in a certain order
 - create a YAML file:
 ```linux
-sudo nano nginx.yml
+sudo nano node_app.yml
 ```
 - Yaml files begin with `---`
 ```YAML
-# This is a playbook to setup and install nginx in our web server(192.168.33.10)
-# It is written in YAML - starts with ---
----
+# install nginx, nodejs, configure reverse proxy, install dependencies
 
-# name of the host
-
-- hosts: web
-
-# find the facts about the host
-
-  gather_facts : yes
-
-# need admin access
-
-  become: true
-
-# instructions using tasks module in ansible
-
-  tasks:
-  - name: Install Nginx
-
-# install nginx
-
-    apt: pkg=nginx state=present update_cache=yes
-
-# ensure it is running/active
-# update cache
-# restart nginx if reverse proxy is implemented or if needed
-    notify: 
-     - restart nginx
-  - name: Allow all access to tcp port 80
-    ufw:
-        rule: allow 
-        port: '80'
-        proto: tcp
-        
-  handlers:
-    - name: Restart Nginx
-      service: 
-        name: nginx
-        state: restarted
-```
-- to run:
-```linux
-ansible-playbook nginx
-```
-- playbook to install nodejs and dependencies:
-```YAML
-# Playbook to install nodejs
 ---
 
 - hosts: web
@@ -64,14 +17,69 @@ ansible-playbook nginx
   become: true
 
   tasks:
-    - name: "Add nodejs apt key"
-      apt_key:
-        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-        state: present
+  - name: Install Nginx
+    apt: pkg=nginx state=present update_cache=yes
+  
+  - name: Remove nginx default file
+    file:
+      path: /etc/nginx/sites-available/default
+      state: absent
 
-    - name: "Install nodejs"
-      apt:
-       update_cache: yes
-       name: nodejs
-       state: present
+  - name: Allow all access to tcp port 80
+    ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+
+  - name: Create empty file
+    # engages ansible file module
+    file:
+      # defines path for the new file 
+      path: /etc/nginx/sites-enabled/reverseproxy.conf
+      # creates file similar to linux touch command 
+      state: touch
+
+  - name: Insert nginx configuration for reverse proxy
+    blockinfile:
+      path: /etc/nginx/sites-enabled/reverseproxy.conf
+      backup: yes
+      block: |
+        server{
+          listen 80;
+          server_name development.web;
+          location / {
+              proxy_pass http://127.0.0.1:3000;
+          }
+        }
+
+  - name: Restart Nginx
+    service: 
+      name: nginx
+      state: restarted
+
+  - name: Create link
+    file:
+      src: /etc/nginx/sites-enabled/reverseproxy.conf
+      dest: /etc/nginx/sites-available/reverseproxy.conf
+      state: link
+
+
+  - name: Install nodejs
+    apt: pkg=nodejs state=present
+
+  - name: Install NPM
+    apt: pkg=npm state=present
+
+  - name: Install pm2
+    npm:
+      name: pm2
+      global: yes
+
+  - name: start app
+    command: pm2 restart app/app.js
 ```
+- to run:
+```linux
+ansible-playbook node_app.yml
+```
+- before running the app, the dev_env app folder needs to be copied to the instance

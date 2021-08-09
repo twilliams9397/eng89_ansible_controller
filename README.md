@@ -1,7 +1,13 @@
 
 # Ansible controller and agent nodes set up guide
-- Clone this repo and run `vagrant up`
-- `(double check syntax/intendation)`
+![ansible](ansible.png)
+
+- ansible controller can be used to configure vagrant machines and cloud instances
+- ansible vault can be used to help secure access keys
+- ansible performs well in cases of 100s of servers
+- the file /etc/ansible/hosts in the controller is used for instance details to connect to the agents nodes - name and IP of nodes
+- the playbook contains instructions for the controller
+- ansible has a python dependency, available by default on ubutu 18.04
 
 ## We will use 18.04 ubuntu for ansible controller and agent nodes set up 
 ### Please ensure to refer back to your vagrant documentation

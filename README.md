@@ -9,6 +9,10 @@
 - the playbook contains instructions for the controller
 - ansible has a python dependency, available by default on ubutu 18.04
 
+## Infrastructure as code
+- two parts: configuration management (chef, puppet and ansible) and orchestration (AWS, ansible and terraform)
+- everything is code - we codify tasks and instructions
+
 ## We will use 18.04 ubuntu for ansible controller and agent nodes set up 
 ### Please ensure to refer back to your vagrant documentation
 

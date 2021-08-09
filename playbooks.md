@@ -34,9 +34,6 @@ sudo nano nginx.yml
     apt: pkg=nginx state=present update_cache=yes
 
 # ensure it is running/active
-
-
-
 # update cache
 # restart nginx if reverse proxy is implemented or if needed
     notify: 
@@ -56,4 +53,8 @@ sudo nano nginx.yml
 - to run:
 ```linux
 ansible-playbook nginx
+```
+- playbook to install nodejs and dependencies:
+```YAML
+
 ```

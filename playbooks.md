@@ -1,7 +1,8 @@
 # Playbooks
 - written in YAML language
 - indentation is strict, and is case sensitive
-- can be used to run commands in a certain ordercd
+- can be used to run commands in a certain order
+- create a YAML file:
 ```linux
 sudo nano nginx.yml
 ```

@@ -18,12 +18,13 @@
 # install nginx
     apt: pkg=nginx state=present update_cache=yes
 
-- 
-  name: Exporting the DB_HOST
+  - name: Exporting the DB_HOST
     become_user: root
-    shell: |
-     export DB_HOST=mongodb://192.168.10.150:27017/posts >> ~/.bashrc
-     source ~/.bashrc
+    blockinfile:
+      path: ~/.bashrc
+      backup: yes
+      block: |
+        "DB_HOST=192.168.33.11:27017/posts"
 -
   name: "installing nodejs"
   hosts: web

@@ -84,4 +84,5 @@
        cd app/
        npm install
        pm2 kill
+       node seeds/seed.js
        pm2 start app.js

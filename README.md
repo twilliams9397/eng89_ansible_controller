@@ -78,3 +78,4 @@ Vagrant.configure("2") do |config|
 end
 ```
 - Ansible is a **push** configuration - all commands pushed from controller
+- to run commands from controller in instance: `ansible <instance> -m shell -a "commands"`

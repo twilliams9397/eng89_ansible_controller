@@ -29,7 +29,7 @@
       path: /etc/mongodb.conf
       backup: yes
       block: |
-        "storage:
+        storage:
           dbPath: /var/lib/mongodb
           journal:
             enabled: true
@@ -39,7 +39,7 @@
           path: /var/log/mongodb/mongod.log
         net:
           port: 27017
-          bindIp: 0.0.0.0"
+          bindIp: 0.0.0.0
 
   - name: Restart mongodb
     become: true

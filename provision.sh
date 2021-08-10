@@ -12,6 +12,12 @@ sudo apt-get update -y
 
 sudo apt-get install ansible -y
 
+sudo apt-get install python3-pip -y
+
+sudo pip3 install awscli
+
+sudo pip3 install boto boto3
+
 sudo rm -rf /etc/ansible/hosts
 
 sudo echo "[web]

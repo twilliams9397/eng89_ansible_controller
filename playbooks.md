@@ -75,8 +75,15 @@ sudo nano node_app.yml
       name: pm2
       global: yes
 
-  - name: start app
-    command: pm2 restart app/app.js
+  # - name: start app
+  #   command: pm2 restart app/app.js
+  # - name: seed + run app
+  #   shell: |
+  #   cd app/
+  #   npm install
+  #   node seeds/seed.js
+  #   pm2 kill
+  #   pm2 start app.js
 ```
 - to run:
 ```linux

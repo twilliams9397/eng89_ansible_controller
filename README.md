@@ -79,4 +79,10 @@ end
 ```
 - Ansible is a **push** configuration - all commands pushed from controller
 - to run commands from controller in instance: `ansible <instance> -m shell -a "commands"`
-- ansible vault used to encrypt keys
+- ansible vault used to encrypt keys - can be .gitignore, secret.txt
+- ansible verifies keys for AWS e.g. then goes onto to do playbook tasks
+
+
+
+
+

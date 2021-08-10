@@ -6,9 +6,9 @@ sudo apt update -y
 sudo apt-get install tree -y
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
-sudo apt install python3-pip
-pip3 install awscli
-pip3 install boto boto3
+sudo apt install python3-pip -y
+pip3 install awscli -y
+pip3 install boto boto3 -y
 python3 -m pip install --user --upgrade pip
 python3 -m pip install ansible boto3 botocore
 sudo apt-get upgrade -y

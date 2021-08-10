@@ -26,6 +26,9 @@ Vagrant.configure("2") do |config|
     # creating a link called development.web so we can access web page with this link instread of an IP   
     
     web.vm.synced_folder "/Users/Tom1/Documents/Sparta/Vagrant/Dev_Env/eng89_dev_env/app", "/home/vagrant/app"
+    
+    web.vm.provision "shell", path: "./update_provision.sh"
+
   end
 
 # creating second VM called db
@@ -37,7 +40,10 @@ Vagrant.configure("2") do |config|
     
     db.vm.network :private_network, ip: "192.168.33.11"
     
-    config.hostsupdater.aliases = ["development.db"]     
+    config.hostsupdater.aliases = ["development.db"]
+
+    db.vm.provision "shell", path: "./update_provision.sh"
+
   end
 
  # creating are Ansible controller
@@ -51,9 +57,9 @@ Vagrant.configure("2") do |config|
     
     config.hostsupdater.aliases = ["development.controller"]
   # just syncs folder so yml is accessible
-    controller.vm.synced_folder "/Users/Tom1/Documents/Sparta/Ansible/eng89_ansible_controller"
+    controller.vm.synced_folder "/Users/Tom1/Documents/Sparta/Ansible/eng89_ansible_controller", "/home/vagrant"
     
-    controller.vm.provision "shell" path: "./provision.sh"
+    controller.vm.provision "shell", path: "./provision.sh"
 
   end
 

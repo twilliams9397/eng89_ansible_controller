@@ -12,6 +12,8 @@ sudo apt-get update -y
 
 sudo apt-get install ansible -y
 
+sudo rm -rf /etc/ansible/hosts
+
 sudo echo "[web]
 192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 

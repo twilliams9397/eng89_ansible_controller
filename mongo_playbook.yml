@@ -43,12 +43,12 @@
 
   - name: Restart mongodb
     become: true
-    shell: systemctl restart mongod
+    shell: systemctl restart mongodb
 
   - name: enable mongodb
     become: true
-    shell: systemctl enable mongod
+    shell: systemctl enable mongodb
 
   - name: start mongodb
     become: true
-    shell: systemctl start mongod
+    shell: systemctl start mongodb

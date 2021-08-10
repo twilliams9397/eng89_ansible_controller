@@ -18,12 +18,12 @@
 # install nginx
     apt: pkg=nginx state=present update_cache=yes
 
-  - name: Adding DB_HOST to permanent env variables
-    blockinfile:
-      path: ~/.bashrc
-      block: |
-        DB_HOST=192.168.33.11:27017/posts
-
+- 
+  name: Exporting the DB_HOST
+    become_user: root
+    shell: |
+     export DB_HOST=mongodb://192.168.10.150:27017/posts >> ~/.bashrc
+     source ~/.bashrc
 -
   name: "installing nodejs"
   hosts: web

@@ -2,7 +2,7 @@
 
 ---
 
-# name of the hosts - hosts is to define the name of your host of all
+# name of the hosts - defines where playbook will run
 - hosts: web
 
 # find the facts about the host

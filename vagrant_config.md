@@ -21,6 +21,9 @@ sudo apt-get install ansible
 ```linux
 [web]
 192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[db]
+192.168.33.11 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 ```
 - when running the `ping` command, it will only return success if the `hosts` file is configured correctly and the machine being pinged is live and running
 - can ssh from controller into instances with the IP - `ssh vagrant@192.168.33.11` for db, password is `vagrant`

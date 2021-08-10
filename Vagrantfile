@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
     config.hostsupdater.aliases = ["development.web"]
     # creating a link called development.web so we can access web page with this link instread of an IP   
     
-    web.vm.synced_folder "/Users/Tom1/Documents/Sparta/Vagrant/Dev_Env/eng89_dev_env/app", "/home/vagrant/app", type: "rsync", rsync__args: ["-r", "--include=node_app.yml", "--exclude=*"]
+    web.vm.synced_folder "/Users/Tom1/Documents/Sparta/Vagrant/Dev_Env/eng89_dev_env/app", "/home/vagrant/app"
   end
 
 # creating second VM called db
@@ -50,8 +50,8 @@ Vagrant.configure("2") do |config|
     controller.vm.network :private_network, ip: "192.168.33.12"
     
     config.hostsupdater.aliases = ["development.controller"]
-
-    controller.vm.synced_folder "/Users/Tom1/Documents/Sparta/Ansible/eng89_ansible_controller", "/home/vagrant/"
+  # just syncs folder so yml is accessible
+    controller.vm.synced_folder "/Users/Tom1/Documents/Sparta/Ansible/eng89_ansible_controller"
     
   end
 

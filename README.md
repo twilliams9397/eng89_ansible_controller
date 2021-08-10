@@ -8,6 +8,7 @@
 - the file /etc/ansible/hosts in the controller is used for instance details to connect to the agents nodes - name and IP of nodes
 - the playbook contains instructions for the controller
 - ansible has a python dependency, available by default on ubutu 18.04
+- ansible is cloud independent - works on any service
 
 ## Infrastructure as code
 - two parts: configuration management (chef, puppet and ansible) and orchestration (AWS, ansible and terraform)

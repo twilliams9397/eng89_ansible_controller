@@ -53,6 +53,8 @@ Vagrant.configure("2") do |config|
   # just syncs folder so yml is accessible
     controller.vm.synced_folder "/Users/Tom1/Documents/Sparta/Ansible/eng89_ansible_controller"
     
+    controller.vm.provision "shell" path: "./provision.sh"
+
   end
 
 end

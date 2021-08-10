@@ -12,6 +12,8 @@
 ## Infrastructure as code
 - two parts: configuration management (chef, puppet and ansible) and orchestration (AWS, ansible and terraform)
 - everything is code - we codify tasks and instructions
+- no manual handling, all instructions pre written and one command runs it all
+- ansible controller is agentless as only controller needs ansible installations - agent nodes don't need it
 
 ## We will use 18.04 ubuntu for ansible controller and agent nodes set up 
 ### Please ensure to refer back to your vagrant documentation
@@ -74,3 +76,4 @@ Vagrant.configure("2") do |config|
 
 end
 ```
+- Ansible is a **push** configuration - all commands pushed from controller

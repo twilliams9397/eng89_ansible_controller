@@ -1,13 +1,3 @@
-# Playbooks
-- written in YAML language
-- indentation is strict, and is case sensitive
-- can be used to run commands in a certain order
-- create a YAML file in the instance or sync an already written on in the Vagrantfile
-```linux
-sudo nano node_app.yml
-```
-- Yaml files begin with `---`
-```YAML
 # install nginx, nodejs, configure reverse proxy, install dependencies
 
 ---
@@ -77,10 +67,3 @@ sudo nano node_app.yml
 
   - name: start app
     command: pm2 restart app/app.js
-```
-- to run:
-```linux
-ansible-playbook node_app.yml
-```
-- before running the app, the dev_env app folder needs to be copied to the instance
-- `ansible-playbook playbook_name.yml  --syntax-check` can check the syntax before running a playbook

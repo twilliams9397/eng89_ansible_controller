@@ -23,9 +23,10 @@ sudo apt-add-repository ppa:ansible/ansible
 
 sudo apt-get update -y
 
-sudo apt-get install ansible
+sudo apt-get install ansible -y
 
-sudo echo "[web]
+sudo echo "
+[web]
 192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [db]

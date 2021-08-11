@@ -30,7 +30,7 @@
       blockinfile:
         path: .bashrc
         block: |
-          DB_HOST=mongodb://192.168.33.11:27017/posts
+          DB_HOST=mongodb://10.205.2.167:27017/posts
 
     - name: provisioning ec2 instances
       block:

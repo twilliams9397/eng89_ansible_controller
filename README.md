@@ -13,6 +13,7 @@
 - 5. run `ansible-playbook name_of_playbook --ask-vault-pass` and enter vault password when prompoted
 - to ping the ec2 we need to add the ec2 IP to the hosts file with pem file authentifacation: `[aws]
 ec2-instance ansible_host=54.75.55.227 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/eng89_devops.pem`
+- whenn shhing into the ec2, ensure you are in the same location as the .pem key or you specify it in the ssh command
 
 - ansible controller can be used to configure vagrant machines and cloud instances
 - ansible vault can be used to help secure access keys

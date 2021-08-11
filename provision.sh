@@ -20,8 +20,6 @@ sudo pip3 install boto boto3
 
 sudo rm -rf /etc/ansible/hosts
 
-scp -i eng89_devops.pem /.ssh/eng89_devops.pem vagrant@IP:192.168.33.12
-
 sudo echo "[web]
 192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 

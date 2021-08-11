@@ -2,6 +2,16 @@
 # Ansible controller and agent nodes set up guide
 ![ansible](ansible.png)
 
+#### Steps
+- 1. set up controller with python, pip3 and boto3
+- 2. aws keys with ansible vault setup
+- 2.1. ensure ansible is using python 3 and above
+- if it is using 2.7; create alias/export variable/inject in playbook or hosts file
+- 3. generate ssh key inside controller /.ssh folder - eng89_devops.pem, eng89_devops and eng89_devops.pub
+- 4. for first time copying and using file, run `chmod 400 key_name`
+- 5. run `ansible-playbook name_of_playbook --ask-vault-pass` and enter vault password when prompoted
+- to ping the ec2 we need to add the ec2 IP to the hosts file with pem file authentifacation: `ec2-instance ansible_host=instance_IP ansible_ssh_private_key_file=~/.ssh/eng89_devops.pem`
+
 - ansible controller can be used to configure vagrant machines and cloud instances
 - ansible vault can be used to help secure access keys
 - ansible performs well in cases of 100s of servers

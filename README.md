@@ -11,7 +11,8 @@
 - `scp -i eng89_devops.pem -r eng89_devops.pem vagrant@192.168.33.12:~/.ssh/` for .pem, and use key generation command inside the controller .ssh folder `ssh-keygen -t RSA -C "twilliams@spartaglobal.com"`, saving the key pair as eng89_devops
 - 4. for first time copying and using file, run `chmod 400 key_name`
 - 5. run `ansible-playbook name_of_playbook --ask-vault-pass` and enter vault password when prompoted
-- to ping the ec2 we need to add the ec2 IP to the hosts file with pem file authentifacation: `ec2-instance ansible_host=instance_IP ansible_ssh_private_key_file=~/.ssh/eng89_devops.pem`
+- to ping the ec2 we need to add the ec2 IP to the hosts file with pem file authentifacation: `[aws]
+ec2-instance ansible_host=54.75.55.227 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/eng89_devops.pem`
 
 - ansible controller can be used to configure vagrant machines and cloud instances
 - ansible vault can be used to help secure access keys

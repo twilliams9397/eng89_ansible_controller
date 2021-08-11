@@ -11,8 +11,8 @@
     region: eu-west-1
     image: ami-039900c4ef89c6f9c
     id: "eng89 ansible playbook to launch an aws ec2 instance"
-    sec_group: "sg-0e4a4d95cfa2c3ec0"
-    subnet_id: "subnet-00ac052b1e40c0164"
+    sec_group: "sg-023b8b51e1816b271"
+    subnet_id: "subnet-0c329f43d3ad8e38f"
     ansible_python_interpreter: /usr/bin/python3
   tasks:
 

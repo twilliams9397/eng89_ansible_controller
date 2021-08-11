@@ -6,7 +6,7 @@
 - 1. set up controller with python, pip3 and boto3
 - 2. aws keys with ansible vault setup
 - 2.1. ensure ansible is using python 3 and above
-- if it is using 2.7; create alias/export variable/inject in playbook or hosts file
+- if it is using 2.7; create alias/export variable/inject in playbook or hosts file - playbook command: `ansible_python_interpreter: usr/bin/python3`
 - 3. generate ssh key inside controller /.ssh folder - eng89_devops.pem, eng89_devops and eng89_devops.pub
 - 4. for first time copying and using file, run `chmod 400 key_name`
 - 5. run `ansible-playbook name_of_playbook --ask-vault-pass` and enter vault password when prompoted

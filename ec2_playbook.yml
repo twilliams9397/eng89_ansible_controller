@@ -10,7 +10,7 @@
     key_name: eng89_devops
     region: eu-west-1
     image: ami-0c898f372a0ace9c8
-    id: "eng89 ansible playbook to launch an aws ec2 instance"
+    id: "eng89 ansible playbook ec2 instance"
     sec_group: "sg-023b8b51e1816b271"
     subnet_id: "subnet-0c329f43d3ad8e38f"
     ansible_python_interpreter: /usr/bin/python3

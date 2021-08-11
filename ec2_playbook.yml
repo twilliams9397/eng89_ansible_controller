@@ -24,7 +24,13 @@
           aws_access_key: "{{aws_access_key}}"
           aws_secret_key: "{{aws_secret_key}}"
           region: "{{ region }}"
-        register: result
+        register: result   
+
+    - name: "adding DB_HOST"
+      blockinfile:
+        path: .bashrc
+        block: |
+          DB_HOST=mongodb://192.168.33.11:27017/posts
 
     - name: provisioning ec2 instances
       block:
